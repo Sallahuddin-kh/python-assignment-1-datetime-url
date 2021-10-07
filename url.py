@@ -2,17 +2,17 @@ def get_protocol(url:str)->str:
     '''
     Gets the protocol specified in the url
     '''                        
-    parsed_url = url.split('?')
+    parsed_url = url.split("?")
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1):
-        return 'None'
+        return "None"
     return protocol[0]
 
 def get_domain(url:str)->str: 
     '''
     Gets the domain in the url
     '''                          
-    parsed_url = url.split('?') 
+    parsed_url = url.split("?") 
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1): 
         domain = protocol[0].split("/")
@@ -27,7 +27,7 @@ def get_path(url:str)->str:
     '''
     Gets the Path of the resource
     '''                             
-    parsed_url = url.split('?') 
+    parsed_url = url.split("?") 
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1): 
         domain = protocol[0].split("/",1)
@@ -40,14 +40,13 @@ def get_query_string_params(url:str)->dict:
     '''
     Returns the query arguments in form of a dictionary
     '''            
-    path_and_query = url.split('?')  
+    path_and_query = url.split("?")  
     if(len(path_and_query)>1):
-        split_query = path_and_query[1].split('&')
+        split_query = path_and_query[1].split("&")
         dict = {}
         for param in split_query:
-            temp = param.split('=')
+            temp = param.split("=")
             dict[temp[0]] = temp[1]
         return dict
     else:
         return {}
-        
