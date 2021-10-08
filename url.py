@@ -51,5 +51,4 @@ def get_query_string_params(url:str)->dict:
             dict[temp[0]] = temp[1]
         return dict
     return {}
-
-
+    
