@@ -11,3 +11,5 @@ def get_components(datetime:str)->list:
     except ValueError as ve:
         print(ve)
         return [0,0,0,0,0,0]
+
+
