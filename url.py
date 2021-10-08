@@ -1,17 +1,17 @@
 def get_protocol(url:str)->str: 
-    '''
+    """
     Gets the protocol specified in the url
-    '''                        
+    """                        
     parsed_url = url.split("?")
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1):
-        return "None"
+        return None
     return protocol[0]
 
 def get_domain(url:str)->str: 
-    '''
+    """
     Gets the domain in the url
-    '''                          
+    """                          
     parsed_url = url.split("?") 
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1): 
@@ -24,9 +24,9 @@ def get_domain(url:str)->str:
         return domain[0]
 
 def get_path(url:str)->str:
-    '''
+    """
     Gets the Path of the resource
-    '''                             
+    """                             
     parsed_url = url.split("?") 
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1): 
@@ -34,12 +34,14 @@ def get_path(url:str)->str:
         return domain[1]
     else:
         domain = protocol[1].split("/",1)
-        return domain[1]
+        return_string = "/"+domain[1]
+        print(return_string)
+        return return_string
     
 def get_query_string_params(url:str)->dict: 
-    '''
+    """
     Returns the query arguments in form of a dictionary
-    '''            
+    """            
     path_and_query = url.split("?")  
     if(len(path_and_query)>1):
         split_query = path_and_query[1].split("&")
@@ -48,5 +50,7 @@ def get_query_string_params(url:str)->dict:
             temp = param.split("=")
             dict[temp[0]] = temp[1]
         return dict
-    else:
-        return {}
+    return {}
+
+
+print(get_path("www.google.com/dfdsf/fdsf/ds/fds/fd/sf"))
