@@ -31,11 +31,11 @@ def get_path(url:str)->str:
     protocol = parsed_url[0].split("://")
     if(len(protocol) == 1): 
         domain = protocol[0].split("/",1)
-        return domain[1]
+        return_string = "/"+domain[1]
+        return return_string
     else:
         domain = protocol[1].split("/",1)
         return_string = "/"+domain[1]
-        print(return_string)
         return return_string
     
 def get_query_string_params(url:str)->dict: 
